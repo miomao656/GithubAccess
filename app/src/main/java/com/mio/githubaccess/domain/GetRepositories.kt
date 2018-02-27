@@ -1,8 +1,8 @@
 package com.mio.githubaccess.domain
 
+import com.mio.githubaccess.data.net.responses.Repo
 import com.mio.githubaccess.domain.executor.PostExecutionThread
 import com.mio.githubaccess.domain.executor.ThreadExecutor
-import com.mio.githubaccess.view.ui.model.Repo
 import de.codecentric.centerdevice.base.android.domain.interactor.UseCase
 import io.reactivex.Observable
 import javax.inject.Inject

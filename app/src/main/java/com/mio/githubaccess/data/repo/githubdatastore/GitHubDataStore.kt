@@ -1,6 +1,6 @@
 package com.mio.githubaccess.data.repo.githubdatastore
 
-import com.mio.githubaccess.view.ui.model.Repo
+import com.mio.githubaccess.data.net.responses.Repo
 import io.reactivex.Observable
 
 interface GitHubDataStore {

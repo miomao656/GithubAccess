@@ -1,17 +1,22 @@
 package com.mio.githubaccess.view.ui
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import com.mio.githubaccess.R
+import com.mio.githubaccess.data.net.responses.Repo
 import com.mio.githubaccess.injection.components.DaggerRepositoriesComponent
 import com.mio.githubaccess.injection.components.RepositoriesComponent
 import com.mio.githubaccess.view.presenter.repos.ReposPresenter
 import com.mio.githubaccess.view.presenter.repos.ReposView
+import com.mio.githubaccess.view.ui.RepoDetailsActivity.Companion.REPO_DETAILS
 import com.mio.githubaccess.view.ui.base.BaseActivity
-import com.mio.githubaccess.view.ui.model.Repo
 import kotlinx.android.synthetic.main.activity_main.*
+import timber.log.Timber
 import javax.inject.Inject
+
 
 class ReposActivity : BaseActivity(), ReposView {
 
@@ -26,6 +31,11 @@ class ReposActivity : BaseActivity(), ReposView {
   override fun presentRepos(repos: List<Repo>) {
     repo_list.adapter = ReposAdapter(repos) {
       //call details
+      Timber.e(it.toString())
+      val intent = Intent(this, RepoDetailsActivity::class.java).apply {
+        putExtra(REPO_DETAILS, it)
+      }
+      startActivity(intent)
     }
   }
 
@@ -51,10 +61,15 @@ class ReposActivity : BaseActivity(), ReposView {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
+
+    val layoutManager = LinearLayoutManager(this)
+    val dividerItemDecoration = DividerItemDecoration(this, layoutManager.orientation)
+    repo_list.addItemDecoration(dividerItemDecoration)
+    repo_list.layoutManager = layoutManager
+
     reposComponent.inject(this)
     reposPresenter.attachView(this)
     reposPresenter.getReposBy("trending", "stars", "desc")
-    repo_list.layoutManager = LinearLayoutManager(this)
   }
 
   override fun onDestroy() {

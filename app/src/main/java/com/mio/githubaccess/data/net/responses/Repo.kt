@@ -1,11 +1,55 @@
-package com.mio.githubaccess.view.ui.model
+package com.mio.githubaccess.data.net.responses
+
+import android.os.Parcel
+import com.mio.githubaccess.view.ui.KParcelable
+import com.mio.githubaccess.view.ui.parcelableCreator
+import com.mio.githubaccess.view.ui.readDate
+import com.mio.githubaccess.view.ui.writeDate
+import java.util.*
 
 data class Repo(
-    val id: Long,
-    val name: String,
-    val full_name: String,
-    val url: String
-)
+    val id: Long?,
+    val name: String?,
+    val full_name: String?,
+    val url: String?,
+    val description: String?,
+    val created_at: Date?,
+    val homepage: String?,
+    val language: String?,
+    val watchers_count: Long?
+) : KParcelable {
+
+  private constructor(p: Parcel) : this(
+      p.readLong(),
+      p.readString(),
+      p.readString(),
+      p.readString(),
+      p.readString(),
+      p.readDate(),
+      p.readString(),
+      p.readString(),
+      p.readLong()
+  )
+
+  override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
+    writeLong(id ?: 0)
+    writeString(name)
+    writeString(full_name)
+    writeString(url)
+    writeString(description)
+    writeDate(created_at)
+    writeString(homepage)
+    writeString(language)
+    writeLong(watchers_count ?: 0)
+  }
+
+
+  @Suppress("unused")
+  companion object {
+    @JvmField val CREATOR = parcelableCreator(::Repo)
+  }
+
+}
 
 //{
 //  "id": 943149,

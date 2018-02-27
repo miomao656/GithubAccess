@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.mio.githubaccess.R
-import com.mio.githubaccess.view.ui.model.Repo
+import com.mio.githubaccess.data.net.responses.Repo
 import kotlinx.android.synthetic.main.item_repo.view.*
 
 class ReposAdapter(private val repos: List<Repo>,
@@ -28,6 +28,7 @@ class ReposAdapter(private val repos: List<Repo>,
     fun bindRepo(repo: Repo) {
       with(repo) {
         itemView.repo_name.text = repo.name
+        itemView.repo_desc.text = repo.description
         itemView.setOnClickListener { itemClick(this) }
       }
     }

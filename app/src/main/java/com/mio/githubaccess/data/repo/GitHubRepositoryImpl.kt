@@ -1,8 +1,8 @@
 package com.mio.githubaccess.data.repo
 
+import com.mio.githubaccess.data.net.responses.Repo
 import com.mio.githubaccess.data.repo.githubdatastore.GitHubDataFactory
 import com.mio.githubaccess.domain.GitHubRepository
-import com.mio.githubaccess.view.ui.model.Repo
 import io.reactivex.Observable
 import javax.inject.Inject
 import javax.inject.Singleton

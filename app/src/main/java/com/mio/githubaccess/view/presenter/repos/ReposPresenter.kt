@@ -1,10 +1,10 @@
 package com.mio.githubaccess.view.presenter.repos
 
+import com.mio.githubaccess.data.net.responses.Repo
 import com.mio.githubaccess.domain.DefaultObserver
 import com.mio.githubaccess.domain.GetRepositories
 import com.mio.githubaccess.injection.PerActivity
 import com.mio.githubaccess.view.presenter.Presenter
-import com.mio.githubaccess.view.ui.model.Repo
 import timber.log.Timber
 import javax.inject.Inject
 
