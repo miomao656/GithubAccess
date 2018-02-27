@@ -37,7 +37,7 @@ class JobExecutor @Inject constructor() : ThreadExecutor {
     }
 
     companion object {
-      private val THREAD_NAME = "cd_android_"
+      private const val THREAD_NAME = "gh_access_android_"
     }
   }
 

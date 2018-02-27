@@ -2,7 +2,7 @@ package com.mio.githubaccess.injection.modules
 
 import android.content.Context
 import com.mio.githubaccess.data.executor.JobExecutor
-import com.mio.githubaccess.data.repo.GitHubRepositoryImpl
+import com.mio.githubaccess.data.repo.GitHubDataRepository
 import com.mio.githubaccess.domain.GitHubRepository
 import com.mio.githubaccess.domain.executor.PostExecutionThread
 import com.mio.githubaccess.domain.executor.ThreadExecutor
@@ -34,5 +34,5 @@ class AppModule(private val application: GitHubAccessApp) {
 
   @Provides
   @Singleton
-  fun provideGitHubRepository(repository: GitHubRepositoryImpl): GitHubRepository = repository
+  fun provideGitHubRepository(repository: GitHubDataRepository): GitHubRepository = repository
 }

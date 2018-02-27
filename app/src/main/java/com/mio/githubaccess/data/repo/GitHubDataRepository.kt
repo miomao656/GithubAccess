@@ -8,7 +8,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class GitHubRepositoryImpl
+class GitHubDataRepository
 @Inject constructor(
     private val gitHubDataFactory: GitHubDataFactory
 ) : GitHubRepository {

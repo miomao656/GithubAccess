@@ -23,7 +23,7 @@ class BaseServiceManager
    */
   val restRetrofitClient: Retrofit
     get() {
-      if (restClient == null && !BuildConfig.BASE_URL.isNullOrEmpty()) {
+      if (restClient == null && !BuildConfig.BASE_URL.isEmpty()) {
         val builder = Retrofit.Builder().apply {
           baseUrl(BuildConfig.BASE_URL)
           addConverterFactory(GsonConverterFactory.create())

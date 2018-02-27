@@ -1,9 +1,10 @@
-package com.mio.githubaccess.domain
+package com.mio.githubaccess.domain.repos
 
 import com.mio.githubaccess.data.net.responses.Repo
+import com.mio.githubaccess.domain.GitHubRepository
+import com.mio.githubaccess.domain.UseCase
 import com.mio.githubaccess.domain.executor.PostExecutionThread
 import com.mio.githubaccess.domain.executor.ThreadExecutor
-import de.codecentric.centerdevice.base.android.domain.interactor.UseCase
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -20,7 +21,7 @@ class GetRepositories
 
   override fun buildUseCaseObservable(): Observable<List<Repo>> {
     return if (order == null || query == null || sort == null)
-      Observable.error(Throwable("Missing parameters or parameters null"))
+      Observable.error(IllegalArgumentException("Missing parameters or parameters null"))
     else
       repo.getRepos(query!!, sort!!, order!!)
   }

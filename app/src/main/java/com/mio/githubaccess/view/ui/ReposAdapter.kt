@@ -11,16 +11,16 @@ import kotlinx.android.synthetic.main.item_repo.view.*
 class ReposAdapter(private val repos: List<Repo>,
     private val itemClick: (Repo) -> Unit) : RecyclerView.Adapter<ReposAdapter.ViewHolder>() {
 
-  override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-    val view = LayoutInflater.from(parent?.context).inflate(R.layout.item_repo, parent, false)
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    val view = LayoutInflater.from(parent.context).inflate(R.layout.item_repo, parent, false)
     return ViewHolder(view, itemClick)
   }
 
-  override fun getItemCount(): Int = repos.size
-
-  override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-    holder?.bindRepo(repos[position])
+  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    holder.bindRepo(repos[position])
   }
+
+  override fun getItemCount(): Int = repos.size
 
   class ViewHolder(view: View, private val itemClick: (Repo) -> Unit)
     : RecyclerView.ViewHolder(view) {

@@ -1,4 +1,4 @@
-package de.codecentric.centerdevice.base.android.domain.interactor
+package com.mio.githubaccess.domain
 
 import com.mio.githubaccess.domain.executor.PostExecutionThread
 import com.mio.githubaccess.domain.executor.ThreadExecutor
@@ -27,7 +27,7 @@ abstract class UseCase<T>(
   /**
    * Builds an [Observable] which will be used when executing the current [UseCase].
    */
-  protected abstract fun buildUseCaseObservable(): Observable<T>
+  abstract fun buildUseCaseObservable(): Observable<T>
 
   /**
    * Executes the current use case.
