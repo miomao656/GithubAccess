@@ -9,7 +9,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class RepositoriesModule {
+open class RepositoriesModule {
 
   @Provides
   @PerActivity

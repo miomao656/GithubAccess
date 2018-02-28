@@ -19,7 +19,12 @@ class RepoDetailsActivity : BaseActivity() {
     }
 
     repo?.let {
-      repo_details.text = it.toString()
+      repo_details_name.text = it.name
+      repo_details_full_name.text = it.full_name
+      repo_details_description.text = it.description
+      repo_details_home_page.text = it.homepage
+      repo_details_language.text = it.language
+      repo_details_url.text = it.url
     }
   }
 

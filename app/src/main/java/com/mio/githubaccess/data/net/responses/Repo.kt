@@ -1,11 +1,11 @@
 package com.mio.githubaccess.data.net.responses
 
 import android.os.Parcel
-import com.mio.githubaccess.view.ui.KParcelable
-import com.mio.githubaccess.view.ui.parcelableCreator
-import com.mio.githubaccess.view.ui.readDate
-import com.mio.githubaccess.view.ui.writeDate
-import java.util.*
+import com.mio.githubaccess.util.KParcelable
+import com.mio.githubaccess.util.parcelableCreator
+import com.mio.githubaccess.util.readDate
+import com.mio.githubaccess.util.writeDate
+import java.util.Date
 
 data class Repo(
     val id: Long?,

@@ -1,10 +1,10 @@
-package com.mio.githubaccess.view.ui
+package com.mio.githubaccess.util
 
 import android.os.Parcel
 import android.os.Parcelable
 import java.math.BigDecimal
 import java.math.BigInteger
-import java.util.*
+import java.util.Date
 
 interface KParcelable : Parcelable {
   override fun describeContents() = 0
